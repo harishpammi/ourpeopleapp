@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#8BC34A</color>
+    <color name="colorPrimaryDark">#4CAF50</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorToolBar">#64B5F6</color>
+    <color name="colorNotifBar">#2196F3</color>
+    <color name="colorHomeScreenBg">#FFF3E0</color>
+    <color name="color1">#8BC34A</color>
+    <color name="bgZomp">#439A86</color>
+    <color name="bgLightCyan">#E0FBFC</color>
+    <color name="bgEagleGreen">#114B5F</color>
+    <color name="bgCambridgeBlue">#9DC5BB</color>
+    <color name="bgRussianGreen">#6B8F71</color>
+    <color name="bgPearlAqua">#7ADFBB</color>
+    <color name="bgMagicMint">#A6ECE0</color>
+    <color name="fontBrownSugar">#BE6E46</color>
+    
+</resources>
