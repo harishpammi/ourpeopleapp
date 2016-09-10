@@ -26,7 +26,7 @@ public class RegisterScreen extends AppCompatActivity {
         emailInSignup.setOnFocusChangeListener((s,v) -> {
             if (!v) {
                 if (!(Patterns.EMAIL_ADDRESS.matcher(emailInSignup.getText()).matches())) {
-                    Toast.makeText(RegisterScreen.this, "Invalid Email", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(RegisterScreen.this, "Invalid Email", Toast.LENGTH_SHORT).show();
                     emailInSignup.setError("Invalid Email");
                     emailInSignup.setText("");
                 }
@@ -35,8 +35,8 @@ public class RegisterScreen extends AppCompatActivity {
 
         passwordInSignup.setOnFocusChangeListener((s,v) -> {
             if (!v) {
-                if (!(passwordInSignup.getText().length() < 6)) {
-                    Toast.makeText(RegisterScreen.this, "Password should contain minimum 6 characters", Toast.LENGTH_SHORT).show();
+                if (passwordInSignup.getText().length() < 6) {
+                    //Toast.makeText(RegisterScreen.this, "Password should contain minimum 6 characters", Toast.LENGTH_SHORT).show();
                     passwordInSignup.setError("Password should contain minimum 6 characters");
                     passwordInSignup.setText("");
                 }
@@ -45,8 +45,13 @@ public class RegisterScreen extends AppCompatActivity {
 
         Button register = ((Button) findViewById(R.id.btn_register));
         register.setOnClickListener(s -> {
-            Intent homeScreenIntent = new Intent(RegisterScreen.this, HomeScreen.class);
-            RegisterScreen.this.startActivity(homeScreenIntent);
+            if(emailInSignup.getText().equals("") || emailInSignup.getText() == null || passwordInSignup.getText().equals("") || passwordInSignup.getText() == null) {
+                Toast.makeText(RegisterScreen.this, "Please enter Email & Password", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(RegisterScreen.this, "Email:"+emailInSignup.getText()+",Pwd:"+passwordInSignup.getText(), Toast.LENGTH_SHORT).show();
+                Intent homeScreenIntent = new Intent(RegisterScreen.this, HomeScreen.class);
+                RegisterScreen.this.startActivity(homeScreenIntent);
+            }
         });
 
         (findViewById(R.id.ll_logintext)).setOnClickListener(s -> {

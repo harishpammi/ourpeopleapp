@@ -28,7 +28,7 @@ public class SplashScreen extends AppCompatActivity {
         emailText.setOnFocusChangeListener((s, v) -> {
             if (!v) {
                 if (!(Patterns.EMAIL_ADDRESS.matcher(emailText.getText()).matches())) {
-                    Toast.makeText(SplashScreen.this, "Invalid Email", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(SplashScreen.this, "Invalid Email", Toast.LENGTH_SHORT).show();
                     emailText.setError("Invalid Email");
                     emailText.setText("");
                 }
@@ -38,8 +38,8 @@ public class SplashScreen extends AppCompatActivity {
         TextInputEditText password = ((TextInputEditText) findViewById(R.id.pwd));
         password.setOnFocusChangeListener((s, v) -> {
             if (!v) {
-                if (!(password.getText().length() < 6)) {
-                    Toast.makeText(SplashScreen.this, "Password should contain minimum 6 characters", Toast.LENGTH_SHORT).show();
+                if (password.getText().length() < 6) {
+                    //Toast.makeText(SplashScreen.this, "Password should contain minimum 6 characters", Toast.LENGTH_SHORT).show();
                     password.setError("Password should contain minimum 6 characters");
                     password.setText("");
                 }
@@ -48,8 +48,13 @@ public class SplashScreen extends AppCompatActivity {
 
         Button loginBtn = ((Button) findViewById(R.id.btn_login));
         loginBtn.setOnClickListener(s -> {
-            Intent homeScreenIntent = new Intent(SplashScreen.this, HomeScreen.class);
-            SplashScreen.this.startActivity(homeScreenIntent);
+            if(emailText.getText().equals("") || emailText.getText() == null || password.getText().equals("") || password.getText() == null) {
+                Toast.makeText(SplashScreen.this, "Please enter Email & Password", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(SplashScreen.this, "Email:"+emailText.getText()+",Pwd:"+password.getText(), Toast.LENGTH_SHORT).show();
+                /*Intent homeScreenIntent = new Intent(SplashScreen.this, HomeScreen.class);
+                SplashScreen.this.startActivity(homeScreenIntent);*/
+            }
         });
 
     }
