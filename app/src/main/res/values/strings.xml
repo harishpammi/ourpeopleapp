@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Our People</string>
     <string name="welcome_text">Hi</string>
+
+    <string name="signup_hint_fullname">Full Name</string>
+    <string name="signup_hint_familyname">Family / Community Name</string>
+    <string name="signup_hint_email">Email Address</string>
+    <string name="signup_hint_password">Password</string>
+    <string name="signup_hint_phone">Phone number</string>
 </resources>
