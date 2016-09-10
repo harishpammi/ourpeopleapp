@@ -12,6 +12,9 @@
         <activity android:name=".activity.MainActivity">
         </activity>
 
+        <activity android:name=".activity.HomeScreen">
+        </activity>
+
         <activity android:name=".activity.SplashScreen" android:theme="@style/NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +25,7 @@
         
         <activity android:name=".activity.RegisterScreen" android:theme="@style/NoActionBar">
         </activity>
+
     </application>
 
 </manifest>
