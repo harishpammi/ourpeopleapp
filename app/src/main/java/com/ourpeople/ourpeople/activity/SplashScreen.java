@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.ourpeople.ourpeople.R;
+import com.ourpeople.ourpeople.services.CommonUtils;
 
 /**
  * Created by hareesh.pammi on 29/07/16.
@@ -48,12 +49,18 @@ public class SplashScreen extends AppCompatActivity {
 
         Button loginBtn = ((Button) findViewById(R.id.btn_login));
         loginBtn.setOnClickListener(s -> {
-            if(emailText.getText().equals("") || emailText.getText() == null || password.getText().equals("") || password.getText() == null) {
+            if (emailText.getText().toString().equals("") || emailText.getText().toString() == null || password.getText().toString().equals("") || password.getText().toString() == null) {
                 Toast.makeText(SplashScreen.this, "Please enter Email & Password", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(SplashScreen.this, "Email:"+emailText.getText()+",Pwd:"+password.getText(), Toast.LENGTH_SHORT).show();
-                /*Intent homeScreenIntent = new Intent(SplashScreen.this, HomeScreen.class);
-                SplashScreen.this.startActivity(homeScreenIntent);*/
+                //Toast.makeText(SplashScreen.this, "Email:"+emailText.getText()+",Pwd:"+password.getText(), Toast.LENGTH_SHORT).show();
+                String loginApi = "http://192.168.0.8:8080/login?email=" + emailText.getText();
+                String loginResponse = CommonUtils.executeGetHttpCall(loginApi);
+                if(loginResponse!=null) {
+                    Intent homeScreenIntent = new Intent(SplashScreen.this, HomeScreen.class);
+                    SplashScreen.this.startActivity(homeScreenIntent);
+                } else {
+                    Toast.makeText(SplashScreen.this, "Invalid Email & Password", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
